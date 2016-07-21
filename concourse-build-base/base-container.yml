@@ -21,4 +21,5 @@ jobs:
   - get: docker-images-base
     trigger: true
   - put: base-container
+    params: {build: docker-images/concourse-build-base}
 
