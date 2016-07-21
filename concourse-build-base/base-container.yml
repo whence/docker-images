@@ -1,0 +1,24 @@
+resources:
+- name: docker-images-base
+  type: git
+  source:
+    uri: git@github.com:MYOB-Technology/docker-images.git
+    username: {{repo-username}}
+    private_key: {{private-repo-key}}
+    paths:
+    - concourse-build-base
+
+- name: base-container
+  type: docker-image
+  source:
+    repository: {{dockerrepo}}
+    username: {{dockeruser}}
+    password: {{dockerpass}}
+
+jobs:
+- name: base-container
+  plan:
+  - get: docker-images-base
+    trigger: true
+  - put: base-container
+
