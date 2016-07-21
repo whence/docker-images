@@ -4,10 +4,13 @@
 
 `repo-username: <github repo username>`
 
-```private-repo-key: |
-    -----BEGIN RSA PRIVATE KEY-----
-    ABCDEFGHIJKLM... 
-    -----END RSA PRIVATE KEY-----```
+`private-repo-key: |`
+
+`    -----BEGIN RSA PRIVATE KEY-----`
+
+`    ABCDEFGHIJKLM...`
+ 
+`    -----END RSA PRIVATE KEY-----`
     
 `docker_registry: <dockerrepo repository>`
 
