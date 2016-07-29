@@ -1,5 +1,5 @@
 resources:
-- name: docker-images-base
+- name: docker-images-repo
   type: git
   source:
     uri: git@github.com:MYOB-Technology/docker-images.git
@@ -11,15 +11,15 @@ resources:
 - name: base-container
   type: docker-image
   source:
-    repository: {{dockerrepo}}
-    username: {{dockeruser}}
-    password: {{dockerpass}}
+    repository: {{docker-repo}}
+    username: {{docker-user}}
+    password: {{docker-pass}}
 
 jobs:
 - name: base-container
   plan:
-  - get: docker-images-base
+  - get: docker-images-repo
     trigger: true
   - put: base-container
-    params: {build: docker-images-base/concourse-build-base}
+    params: {build: docker-images-repo/concourse-build-base}
 
