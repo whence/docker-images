@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -n "$AWS_BUCKET" ]; then
-  aws s3 sync s3://$AWS_BUCKET ~/.
+  aws s3 sync s3://${AWS_BUCKET}/.ssh ~/.
 fi
 
 if [ -f ~/.ssh/id_rsa ]; then
