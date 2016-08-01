@@ -1,6 +1,7 @@
 FROM anapsix/alpine-java:jdk8
 
 RUN apk add --update curl tar python py-pip && \
+  pip install awscli && \
   rm -rf /tmp/* /var/cache/apk/*
 
 # install Maven
@@ -11,11 +12,5 @@ RUN mkdir -p /usr/share/maven && \
   ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 ENV MAVEN_HOME /usr/share/maven
-
-# install AWS Cli
-RUN mkdir -p /aws && \
-	pip install awscli
-
-WORKDIR /aws
 
 CMD ["mvn"]
