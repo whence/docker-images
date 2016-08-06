@@ -1,4 +1,4 @@
-FROM cybercode/alpine-ruby:2.3
+FROM ruby:alpine
 
 COPY entry.sh /usr/local/bin/entry
 
